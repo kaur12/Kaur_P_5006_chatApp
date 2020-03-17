@@ -9,8 +9,7 @@ function setUserId({sID, message}) {
 }
 
 function runDisconnectMessage(packet) {
-    //debugger;
-    console.log(packet);
+    console.log('user dissconnected');
 }
 
 function appendNewMessage(msg) {
