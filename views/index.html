@@ -15,11 +15,11 @@
 		<div class="loginDis">
 			<div class="loginDiv">
 				<h1>Welcome to the chat</h1>
-				<p>Please add your gamer tag to connect with other players!</p>
+				<p>To start:fill you name and go awesome!</p>
 				<form class="logForm"> 
-					<label for="nickname">What's Your Gamer tag?</label>
+					<label for="nickname">What's your Good Name?</label>
 					<input v-model='nickname' type="text" id="nickname" class="nickname" placeholder="Name?" required>
-					<button @click.prevent='addNewPlayer' type="submit" class="nicknameButton">submit</button>
+					<button @click.prevent='addNewMember' type="submit" class="nicknameButton">submit</button>
 				</form>
 
 			</div>
@@ -27,8 +27,6 @@
 
 
 		<section class="form-container">
-			<label for="nickname">Your Good Name (optional)</label>
-			<input type="text" id="nickname" class="nickname" placeholder="What is your good name?">
 
 			<form>
 				<label for="message">Message</label>

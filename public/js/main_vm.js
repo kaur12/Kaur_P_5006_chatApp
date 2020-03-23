@@ -18,13 +18,18 @@ function appendNewMessage(msg) {
     vm.messages.push(msg);
 }
 
+function appendMember(member) {
+    vm.members.push(member);
+}
+
 // this is our main Vue instance
 const vm = new Vue({
     data: {
         socketID: "",
         messages: [],
         message: "",
-        nickName: ""
+        nickname: "",
+        members: []
     },
 
     methods: {
@@ -34,13 +39,21 @@ const vm = new Vue({
 
             socket.emit('chat_message', {
                 content: this.message,
-                name: this.nickName || "nickName"
+                name: this.nickname || "anonymous"
                 // || is called double pipe operator or an "or" operator
                 // is this.nickName is set, use it as the value
                 // or just make name "anonymous"
             })
 
             this.message = "";
+        },
+
+        addNewMember(){
+            console.log('a member has joined');
+
+            socket.emit('memberJoined', {
+                member: this.nickname
+            })
         }
     },
 
@@ -57,6 +70,7 @@ const vm = new Vue({
 socket.addEventListener('connected', setUserId);
 socket.addEventListener('user_disconnect', runDisconnectMessage);
 socket.addEventListener('new_message', appendNewMessage);
+socket.addEventListener('newMember', appendMember);
 
 //login display function
 const loginScreen     = document.querySelector('.loginDiv'),
