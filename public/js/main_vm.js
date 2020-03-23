@@ -34,7 +34,7 @@ const vm = new Vue({
 
             socket.emit('chat_message', {
                 content: this.message,
-                name: this.nickName || "anonymous"
+                name: this.nickName || "nickName"
                 // || is called double pipe operator or an "or" operator
                 // is this.nickName is set, use it as the value
                 // or just make name "anonymous"
@@ -57,3 +57,19 @@ const vm = new Vue({
 socket.addEventListener('connected', setUserId);
 socket.addEventListener('user_disconnect', runDisconnectMessage);
 socket.addEventListener('new_message', appendNewMessage);
+
+//login display function
+const loginScreen     = document.querySelector('.loginDiv'),
+      loginForm     = document.querySelector('.logForm'),
+      nicknameInput = document.querySelector('#nickname'),
+      loginButton   = document.querySelector('.nicknameButton');
+
+      loginButton.addEventListener('click', function(){
+        if(nicknameInput.value === ''){
+            alert("You need to input a Username")
+        }else{
+            console.log('New player has joined');
+            loginScreen.classList.add('hide');
+            alert('Welcome, ' + nicknameInput.value);
+        }
+      });
