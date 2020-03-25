@@ -26,10 +26,10 @@ function appendMember(member) {
 const vm = new Vue({
     data: {
         socketID: "",
-        messages: [],
         message: "",
         nickname: "",
-        members: []
+        members: [],
+        messages: []
     },
 
     methods: {
@@ -73,7 +73,7 @@ socket.addEventListener('new_message', appendNewMessage);
 socket.addEventListener('newMember', appendMember);
 
 //login display function
-const loginScreen     = document.querySelector('.loginDiv'),
+const loginScreen     = document.querySelector('.loginDis'),
       loginForm     = document.querySelector('.logForm'),
       nicknameInput = document.querySelector('#nickname'),
       loginButton   = document.querySelector('.nicknameButton');

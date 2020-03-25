@@ -39,7 +39,7 @@ io.on('connection', function(socket) {
     })
 
     socket.on('memberJoined', function(member){
-        console.log(player + 'has joined chat');
+        console.log(member + 'has joined chat');
         io.emit('newMember', member);
     })
 
